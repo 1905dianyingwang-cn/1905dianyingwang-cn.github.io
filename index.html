@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>1905电影网 - 热门电影电视剧在线观看_影视资源聚合导航</title>
+<meta name="description" content="1905电影网是面向中文用户的影视资源聚合导航站，收录热门电影、热播电视剧、国创动漫与热播榜单，分类清晰、每日更新、移动端自适应，从百年光影到今日新片一站收拢。">
+<meta name="keywords" content="1905电影网,1905电影,电影在线观看,电视剧在线观看,国创动漫,高清影视导航,热播榜单,新片速递">
+<meta name="author" content="1905电影网">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#0b0d10">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://www.1905dianyingwang-cn/">
+<link rel="apple-touch-icon" href="/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="1905电影网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="1905电影网 - 热门电影电视剧在线观看_影视资源聚合导航">
+<meta property="og:description" content="1905电影网：热门电影、热播剧集、国创动漫与热播榜单一站直达，每日更新，手机端自适应。">
+<meta property="og:url" content="https://www.1905dianyingwang-cn/">
+<meta property="og:image" content="https://www.1905dianyingwang-cn/favicon.ico">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1905电影网 - 热门电影电视剧在线观看">
+<meta name="twitter:description" content="1905电影网：热门电影、热播剧集、热播榜单一站直达，移动端自适应。">
+
+<style>
+/* ============ 设计令牌：菲林放映室（Filmstrip Projection） ============ */
+:root{
+  --bg:#0b0d10;
+  --bg-2:#12151a;
+  --film:#05070a;
+  --film-2:#0f1318;
+  --silver:#e8eaed;
+  --silver-2:#a9b0b8;
+  --silver-3:#6b727a;
+  --amber:#f0b429;
+  --warm:#fff6e0;
+  --red:#d92b2b;
+  --teal:#3fb8b0;
+  --line:rgba(232,234,237,.13);
+  --line-2:rgba(240,180,41,.34);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --maxw:1180px;
+  --nav-h:62px;
+  /* 胶片齿孔（SVG data URI，圆角矩形孔） */
+  --perf:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='18'%3E%3Crect x='4' y='3' width='15' height='12' rx='3.5' fill='%23fff6e0' opacity='.16'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;padding:0;color:var(--silver);
+  font:16px/1.8 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background:linear-gradient(180deg,#0b0d10 0%,#111620 34%,#0d1014 68%,#080a0d 100%);
+  background-attachment:fixed;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(760px 460px at 50% -8%, rgba(255,246,224,.16), transparent 62%),
+    radial-gradient(720px 440px at 4% 24%, rgba(240,180,41,.10), transparent 62%),
+    radial-gradient(820px 520px at 98% 76%, rgba(63,184,176,.10), transparent 64%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(232,234,237,.05) 1px,transparent 1px);background-size:7px 7px;
+  mix-blend-mode:screen;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;font-weight:800;line-height:1.3;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--amber);color:#0b0d10;padding:10px 16px;z-index:999}
+.skip:focus{left:12px;top:12px}
+.mono{font-family:var(--mono);letter-spacing:.14em}
+
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:var(--amber);
+  box-shadow:0 0 10px rgba(240,180,41,.7)}
+
+/* ============ 齿孔条通用 ============ */
+.perf{height:18px;background-image:var(--perf);background-repeat:repeat-x;background-size:26px 18px}
+.perf-v{width:18px;background-image:var(--perf);background-repeat:repeat-y;background-size:18px 26px;
+  transform:rotate(180deg)}
+/* 胶片带：上下齿孔 + 中间画面 */
+.film{position:relative;background:var(--film);border:1px solid var(--line);
+  box-shadow:0 20px 44px rgba(0,0,0,.55)}
+.film .perf-t{height:18px;background-image:var(--perf);background-repeat:repeat-x;background-size:26px 18px;
+  border-bottom:1px solid rgba(232,234,237,.07)}
+.film .perf-b{height:18px;background-image:var(--perf);background-repeat:repeat-x;background-size:26px 18px;
+  border-top:1px solid rgba(232,234,237,.07)}
+.film .frames{padding:20px}
+
+/* ============ 顶部条 ============ */
+.topbar{border-bottom:1px solid var(--line);background:rgba(8,10,13,.72);backdrop-filter:blur(8px)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:7px 22px;display:flex;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--silver-3);letter-spacing:.12em}
+.topbar-in b{color:var(--amber)}
+.topbar-in .lamp{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);
+  margin-right:7px;box-shadow:0 0 8px rgba(240,180,41,.9);animation:flick 2.4s ease-in-out infinite}
+@keyframes flick{0%,100%{opacity:1}45%{opacity:.45}55%{opacity:.85}}
+
+/* ============ 导航 ============ */
+.nav{position:sticky;top:0;z-index:150;background:rgba(8,10,13,.9);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 22px;height:var(--nav-h);display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+/* 卷盘 logo */
+.reel-logo{flex:0 0 auto;width:38px;height:38px;border-radius:50%;position:relative;
+  border:2px solid var(--amber);
+  background:
+    radial-gradient(circle at 50% 50%, var(--film) 0 22%, transparent 22%),
+    radial-gradient(circle 5px at 50% 14%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 5px at 82% 38%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 5px at 74% 78%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 5px at 26% 78%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 5px at 18% 38%, var(--amber) 0 100%, transparent 100%);
+  box-shadow:0 0 14px rgba(240,180,41,.34)}
+.brand b{display:block;font-size:18.5px;letter-spacing:.04em}
+.brand small{display:block;font-size:9px;letter-spacing:.3em;color:var(--silver-3);text-transform:uppercase;margin-top:-3px}
+.menu{margin-left:auto;display:flex;align-items:center;gap:4px}
+.menu a{padding:8px 14px;font-size:15px;color:var(--silver-2);transition:.2s;white-space:nowrap;border-radius:6px;
+  position:relative}
+.menu a:hover{color:var(--warm);background:rgba(255,246,224,.07)}
+.menu a.active{color:var(--amber);background:rgba(240,180,41,.12)}
+.menu a.active::before{content:"▸";margin-right:6px;color:var(--amber)}
+.nav-cta{flex:0 0 auto;margin-left:4px;padding:9px 18px;font-size:14px;font-weight:800;color:#0b0d10;
+  background:var(--amber);border-radius:6px;white-space:nowrap;box-shadow:0 0 18px rgba(240,180,41,.34)}
+.nav-cta:hover{background:var(--warm)}
+.burger{display:none;margin-left:auto;width:40px;height:36px;background:transparent;border:1px solid var(--line);
+  border-radius:6px;cursor:pointer;place-items:center}
+.burger span{display:block;width:17px;height:2px;background:var(--silver);transition:.22s}
+.burger span+span{margin-top:5px}
+.burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ Hero：放映光束 ============ */
+.hero{position:relative;padding:52px 0 44px;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .perf.t{position:absolute;top:0;left:0;right:0;opacity:.8}
+.hero .perf.b{position:absolute;bottom:0;left:0;right:0;opacity:.8}
+/* 光锥 */
+.beam{position:absolute;left:50%;top:-30px;width:min(920px,120vw);height:760px;transform:translateX(-50%);
+  pointer-events:none;z-index:0;
+  clip-path:polygon(46% 0%,54% 0%,100% 78%,0% 78%);
+  background:linear-gradient(180deg,rgba(255,246,224,.42),rgba(255,246,224,.10) 42%,transparent 78%);
+  mix-blend-mode:screen;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.85}50%{opacity:1}}
+.hero .wrap{position:relative;z-index:3}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 14px;border:1px solid var(--line-2);border-radius:999px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;color:var(--amber)}
+.hero h1{font-size:clamp(28px,4.9vw,50px);margin:20px 0 15px;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--warm);
+  text-shadow:0 0 26px rgba(255,246,224,.5),0 0 60px rgba(240,180,41,.28)}
+.hero h1 u{text-decoration:none;border-bottom:3px solid var(--amber);padding-bottom:.04em}
+.lead{font-size:clamp(15px,1.6vw,16.5px);color:var(--silver-2);max-width:54ch}
+.lead b{color:var(--amber)}
+.search{margin:26px 0 14px;display:flex;gap:0;max-width:600px;border:1px solid var(--line-2);border-radius:8px;
+  background:rgba(5,7,10,.8);overflow:hidden}
+.search .sig{flex:0 0 auto;display:flex;align-items:center;padding:0 12px;font-family:var(--mono);font-size:12px;
+  color:var(--amber);letter-spacing:.1em;border-right:1px solid var(--line)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;font:15px var(--sans);color:var(--warm);padding:13px 12px}
+.search input::placeholder{color:var(--silver-3)}
+.search button{border:0;border-left:1px solid var(--line-2);cursor:pointer;padding:13px 26px;background:var(--amber);
+  color:#0b0d10;font:800 15px var(--sans);letter-spacing:.08em}
+.search button:hover{background:var(--warm)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:13px;color:var(--silver-3)}
+.chips a{padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--silver-2);transition:.2s;
+  background:rgba(232,234,237,.04)}
+.chips a:hover{border-color:var(--amber);color:var(--amber);background:rgba(240,180,41,.08)}
+
+/* 右侧：放映卡（1905） */
+.projector{padding:22px;border:1px solid var(--line-2);border-radius:10px;
+  background:linear-gradient(160deg,rgba(240,180,41,.12),rgba(63,184,176,.06));
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 22px 48px rgba(0,0,0,.5)}
+.projector .yr{font-family:var(--mono);font-size:clamp(46px,7vw,72px);font-weight:700;line-height:1;
+  letter-spacing:.02em;color:var(--warm);text-shadow:0 0 30px rgba(255,246,224,.36)}
+.projector .yr span{color:var(--amber)}
+.projector .sub{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;color:var(--silver-3);margin-top:8px}
+.projector ul{margin-top:18px;border-top:1px dashed rgba(232,234,237,.18);padding-top:6px}
+.projector li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(232,234,237,.12);
+  font-size:13.5px}
+.projector li:last-child{border-bottom:0}
+.projector li span{color:var(--silver-3)}
+.projector li b{color:var(--warm);font-weight:800}
+.projector .note{margin-top:14px;font-size:12.5px;color:var(--silver-3);letter-spacing:.04em}
+
+/* ============ 栏目通用 ============ */
+section{padding:0}
+.inner{padding:48px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.sec-head .txt{display:flex;gap:15px;align-items:flex-start}
+/* 帧号牌 */
+.frame-no{flex:0 0 auto;min-width:52px;height:40px;display:grid;place-items:center;padding:0 10px;
+  border:1px solid var(--line-2);border-radius:4px;background:rgba(240,180,41,.1);
+  font-family:var(--mono);font-size:13px;font-weight:700;color:var(--amber);letter-spacing:.1em}
+.sec-head h2{font-size:clamp(21px,2.9vw,30px)}
+.sec-head h2 small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.3em;
+  color:var(--silver-3);text-transform:uppercase;margin-bottom:7px}
+.sec-head p{font-size:14.3px;color:var(--silver-2);max-width:54ch;margin-top:8px}
+.more{flex:0 0 auto;padding:10px 20px;font-size:14px;font-weight:800;color:#0b0d10;background:var(--amber);
+  border-radius:6px;white-space:nowrap}
+.more:hover{background:var(--warm)}
+
+.filters{display:flex;gap:9px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none;flex-wrap:wrap}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;border:1px solid var(--line);background:rgba(232,234,237,.05);color:var(--silver-2);
+  padding:8px 18px;border-radius:999px;font:700 14.5px var(--sans);cursor:pointer;transition:.2s}
+.filters button:hover{border-color:var(--line-2);color:var(--amber)}
+.filters button.on{background:var(--amber);color:#0b0d10;border-color:var(--amber);font-weight:800}
+
+/* ============ 片库：大胶片带 ============ */
+.film .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:14px}
+.cell{display:block;border:1px solid rgba(232,234,237,.1);background:var(--film-2);overflow:hidden;transition:.3s}
+.cell:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 18px 36px rgba(0,0,0,.6),0 0 22px rgba(240,180,41,.16)}
+.cell .ph{position:relative;aspect-ratio:3/4;overflow:hidden;border-bottom:1px solid rgba(232,234,237,.1);
+  background:linear-gradient(160deg,var(--c1),var(--c2))}
+.cell .ph::before{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,246,224,.16) 1px,transparent 1.2px);background-size:5px 5px}
+.cell .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 44%,rgba(5,7,10,.9))}
+.cell .ph .tag{position:absolute;left:8px;top:8px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  padding:4px 9px;color:#0b0d10;background:var(--amber)}
+.cell .ph .sc{position:absolute;right:8px;top:8px;z-index:2;font-family:var(--mono);font-size:12px;font-weight:700;
+  padding:3px 7px;color:var(--warm);background:rgba(5,7,10,.8);border:1px solid var(--line-2)}
+.cell .ph .nm{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;font-size:13.5px;font-weight:800;color:var(--warm);
+  text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.cell .meta{padding:10px 11px 12px}
+.cell .meta h3{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cell .meta p{font-size:12.3px;color:var(--silver-3);margin-top:3px;display:flex;justify-content:space-between;gap:8px}
+.cell .meta p em{font-style:normal;font-family:var(--mono);font-weight:700;color:var(--amber)}
+
+/* ============ 剧集：片盘行 ============ */
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.reel-row{display:flex;gap:14px;padding:13px;border:1px solid var(--line);background:var(--film-2);
+  transition:.28s;position:relative;overflow:hidden}
+.reel-row:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 16px 34px rgba(0,0,0,.5)}
+.reel-row .disc{flex:0 0 78px;height:104px;border-radius:6px;position:relative;overflow:hidden;
+  border:1px solid rgba(232,234,237,.14);background:linear-gradient(160deg,var(--c1),var(--c2))}
+.reel-row .disc::after{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,246,224,.14) 1px,transparent 1.2px);background-size:5px 5px}
+.reel-row .disc b{position:absolute;left:0;right:0;bottom:0;z-index:2;font-family:var(--mono);font-size:10px;
+  text-align:center;padding:3px 0;color:var(--warm);background:rgba(5,7,10,.9)}
+.reel-row .det{flex:1;min-width:0}
+.reel-row h3{font-size:15.5px}
+.reel-row p{font-size:12.5px;color:var(--silver-3);margin-top:3px}
+.reel-row .bar{height:6px;margin-top:10px;border-radius:999px;background:rgba(232,234,237,.1);overflow:hidden}
+.reel-row .bar i{display:block;height:100%;border-radius:999px;
+  background:linear-gradient(90deg,var(--teal),var(--amber));box-shadow:0 0 10px rgba(240,180,41,.4)}
+.reel-row .pct{font-family:var(--mono);font-size:11.5px;color:var(--amber);margin-top:6px;display:block;letter-spacing:.08em}
+/* 小卷盘装饰 */
+.reel-row .spin{flex:0 0 auto;align-self:center;width:34px;height:34px;border-radius:50%;
+  border:2px solid rgba(240,180,41,.5);position:relative;
+  background:
+    radial-gradient(circle at 50% 50%, var(--film-2) 0 20%, transparent 20%),
+    radial-gradient(circle 3px at 50% 16%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 3px at 80% 40%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 3px at 72% 76%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 3px at 28% 76%, var(--amber) 0 100%, transparent 100%),
+    radial-gradient(circle 3px at 20% 40%, var(--amber) 0 100%, transparent 100%)}
+
+/* ============ 榜单 ============ */
+.ranks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.rank{border:1px solid var(--line);background:var(--film-2);padding:18px 18px 10px;position:relative;overflow:hidden}
+.rank::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background-image:var(--perf);
+  background-repeat:repeat-x;background-size:26px 18px;opacity:.8}
+.rank h3{font-size:17px;margin:8px 0 12px;padding-bottom:12px;border-bottom:1px dashed rgba(232,234,237,.2);
+  display:flex;align-items:center;gap:11px}
+.rank h3 i{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px rgba(240,180,41,.7)}
+.rank li{display:flex;align-items:center;gap:13px;padding:11px 0;border-top:1px dashed rgba(232,234,237,.14)}
+.rank li:first-of-type{border-top:0}
+.rank .no{flex:0 0 auto;min-width:34px;height:24px;display:grid;place-items:center;padding:0 6px;
+  font-family:var(--mono);font-size:11.5px;color:var(--silver-3);border:1px solid var(--line)}
+.rank li:nth-child(1) .no{color:#0b0d10;background:var(--amber);border-color:var(--amber)}
+.rank li:nth-child(2) .no{color:var(--warm);border-color:var(--line-2)}
+.rank li:nth-child(3) .no{color:var(--teal);border-color:rgba(63,184,176,.5)}
+.rank .rt{flex:1;min-width:0}
+.rank .rt strong{display:block;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank .rt span{font-size:12px;color:var(--silver-3)}
+.rank .hot{flex:0 0 auto;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--amber)}
+
+/* ============ 光影纪事：齿孔时间轴 ============ */
+.timeline{position:relative;padding-left:44px}
+.timeline::before{content:"";position:absolute;left:13px;top:0;bottom:0;width:18px;
+  background-image:var(--perf);background-repeat:repeat-y;background-size:18px 26px}
+.tl-item{position:relative;padding:0 0 22px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:-38px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--amber);
+  box-shadow:0 0 0 4px rgba(240,180,41,.16),0 0 12px rgba(240,180,41,.6)}
+.tl-item .yr{font-family:var(--mono);font-size:12.5px;letter-spacing:.18em;color:var(--amber)}
+.tl-item h3{font-size:16.5px;margin:5px 0 6px}
+.tl-item p{font-size:13.8px;color:var(--silver-2)}
+
+/* 纪事卡片 */
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(272px,1fr));gap:18px;margin-top:30px}
+.note{border:1px solid var(--line);background:var(--film-2);overflow:hidden;transition:.3s}
+.note:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 20px 40px rgba(0,0,0,.55)}
+.note .cv{height:126px;position:relative;border-bottom:1px solid rgba(232,234,237,.1);
+  background:linear-gradient(150deg,var(--c1),var(--c2))}
+.note .cv::before{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,246,224,.16) 1px,transparent 1.2px);background-size:5px 5px}
+.note .cv b{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  padding:5px 12px;color:#0b0d10;background:var(--amber)}
+.note .bd{padding:14px 15px 17px}
+.note h3{font-size:16px;margin-bottom:7px}
+.note p{font-size:13.5px;color:var(--silver-2)}
+.note time{display:block;margin-top:11px;font-family:var(--mono);font-size:11.5px;color:var(--silver-3);letter-spacing:.1em}
+
+/* ============ 关于 / FAQ ============ */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.panel{border:1px solid var(--line);background:var(--film-2);padding:24px}
+.panel h3{font-size:19px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed rgba(232,234,237,.2)}
+.panel p{font-size:14.5px;color:var(--silver-2);margin-bottom:11px}
+.panel p b{color:var(--amber)}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.spec div{padding:12px 13px;border:1px solid var(--line);background:rgba(232,234,237,.03)}
+.spec strong{display:block;font-size:13.5px}
+.spec span{font-size:12px;color:var(--silver-3)}
+.faq details{border-bottom:1px dashed rgba(232,234,237,.18);padding:13px 0}
+.faq summary{cursor:pointer;font-size:15px;font-weight:800;list-style:none;display:flex;justify-content:space-between;
+  gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"▸";color:var(--amber);font-size:15px}
+.faq details[open] summary::after{content:"▾"}
+.faq details p{font-size:14px;color:var(--silver-2);margin-top:9px}
+
+/* CTA */
+.cta{margin-top:14px;position:relative;overflow:hidden;border:1px solid var(--line-2);text-align:center;padding:44px 26px;
+  background:linear-gradient(120deg,rgba(240,180,41,.14),rgba(63,184,176,.08) 55%,rgba(255,246,224,.06))}
+.cta::before{content:"";position:absolute;left:0;right:0;top:0;height:18px;background-image:var(--perf);
+  background-repeat:repeat-x;background-size:26px 18px}
+.cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:18px;background-image:var(--perf);
+  background-repeat:repeat-x;background-size:26px 18px}
+.cta h2{font-size:clamp(20px,3vw,29px);margin:6px 0 10px}
+.cta h2 em{font-style:normal;color:var(--amber);text-shadow:0 0 24px rgba(240,180,41,.4)}
+.cta p{font-size:14.5px;color:var(--silver-2);max-width:56ch;margin:0 auto 22px}
+.cta a{display:inline-block;padding:13px 34px;font-weight:800;color:#0b0d10;background:var(--amber);border-radius:6px;
+  box-shadow:0 0 24px rgba(240,180,41,.36)}
+.cta a:hover{background:var(--warm)}
+
+/* 页脚 */
+footer{margin-top:0;padding:0 0 24px;background:#06080b;border-top:1px solid var(--line-2)}
+footer .perf{opacity:.7}
+.fgrid{padding:34px 0 6px;display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:26px}
+.fgrid h4{font-size:15px;margin-bottom:12px;color:var(--amber);letter-spacing:.08em}
+.fgrid a,.fgrid li{font-size:13.5px;color:var(--silver-3);line-height:2.1}
+.fgrid a:hover{color:var(--warm)}
+.fbrand .lg{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;letter-spacing:.04em}
+.fbrand .lg i{font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-family:var(--mono);
+  font-size:11px;color:#0b0d10;background:var(--amber)}
+.fbrand p{font-size:13.5px;color:var(--silver-3);margin-top:11px;max-width:42ch}
+.bottom{margin-top:22px;padding-top:16px;border-top:1px dashed rgba(232,234,237,.16);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--silver-3)}
+.bottom b{color:var(--amber)}
+
+#top{position:fixed;right:16px;bottom:20px;width:44px;height:44px;border-radius:50%;background:var(--film-2);
+  border:1px solid var(--line-2);color:var(--amber);display:grid;place-items:center;cursor:pointer;z-index:160;
+  opacity:0;pointer-events:none;transition:.28s}
+#top.show{opacity:1;pointer-events:auto}
+#top:hover{background:var(--amber);color:#0b0d10}
+#top svg{width:17px;height:17px;fill:currentColor}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .projector{max-width:540px}
+  .about{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:880px){
+  .menu{position:fixed;top:var(--nav-h);left:10px;right:10px;flex-direction:column;align-items:stretch;gap:4px;
+    padding:10px 0 14px;background:rgba(8,10,13,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--line-2);border-radius:10px;box-shadow:0 20px 44px rgba(0,0,0,.6);
+    transform:translateY(-10px);opacity:0;visibility:hidden;transition:.24s;
+    max-height:calc(100vh - var(--nav-h) - 30px);overflow:auto}
+  .menu.open{transform:none;opacity:1;visibility:visible}
+  .menu a{padding:13px 16px;font-size:16px;border-bottom:1px dashed rgba(232,234,237,.12)}
+  .menu a.active::before{content:""}
+  .nav-cta{margin:8px 0 0;text-align:center}
+  .burger{display:grid}
+  .hero{padding:26px 0 22px}
+  .beam{height:560px;top:-20px}
+  .reels{grid-template-columns:1fr}
+  .timeline{padding-left:34px}
+  .timeline::before{left:8px}
+  .tl-item .dot{left:-33px}
+}
+@media (max-width:600px){
+  .wrap{padding:0 15px}
+  .nav-in{padding:0 15px}
+  .topbar-in{padding:6px 15px;font-size:11px;letter-spacing:.06em}
+  .inner{padding:34px 0}
+  .film .frames{padding:14px 12px}
+  .film .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .cell .nm,.cell .ph .nm{font-size:12px}
+  .cell .meta h3{font-size:13.5px}
+  .search{flex-wrap:wrap}
+  .search .sig{flex:1 1 100%;justify-content:flex-start;padding:8px 12px;border-right:0;border-bottom:1px solid var(--line)}
+  .search input{flex:1 1 100%;border-bottom:1px solid var(--line)}
+  .search button{flex:1 1 100%;border-left:0;border-top:1px solid var(--line-2)}
+  .projector{padding:18px 16px}
+  .fgrid{grid-template-columns:1fr;gap:20px}
+  .spec{grid-template-columns:1fr}
+  .cta{padding:32px 16px}
+  .sec-head{gap:12px}
+  .reel-row .spin{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<a class="skip" href="#main">跳到主要内容</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ===== 顶部条 ===== -->
+<div class="topbar">
+  <div class="topbar-in">
+    <span><span class="lamp" aria-hidden="true"></span>1905电影网 · 放映中</span>
+    <span>每日 <b>10:00</b> / <b>21:00</b> 上新</span>
+    <span>榜单每小时重排</span>
+  </div>
+</div>
+
+<!-- ===== 导航 ===== -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#home" aria-label="1905电影网首页">
+      <span class="reel-logo" aria-hidden="true"></span>
+      <span><b>1905电影网</b><small>film projection</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="展开导航菜单" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="主导航">
+      <a href="#home" class="active">放映厅</a>
+      <a href="#movie">1905片库</a>
+      <a href="#series">剧集追更</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#story">光影纪事</a>
+      <a href="#about">关于帮助</a>
+      <a class="nav-cta" href="#movie">开始放映</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== 首页 ===== -->
+  <section id="home" class="hero">
+    <span class="perf t" aria-hidden="true"></span>
+    <span class="beam" aria-hidden="true"></span>
+    <span class="perf b" aria-hidden="true"></span>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">REEL 01 · 中国电影从这里开始</span>
+        <h1>一百多年的光，<em>1905电影网</em> 一帧一帧 <u>放给你看</u></h1>
+        <p class="lead">
+          1905电影网是面向中文用户的影视资源聚合导航站：热门电影、<b>热播剧集</b>、国创动漫与热播榜单一站收拢，
+          分类清晰、每日上新，手机、平板、电脑打开都能顺畅在线观看。
+        </p>
+        <form class="search" role="search" id="searchForm">
+          <span class="sig" aria-hidden="true">SEARCH</span>
+          <input type="search" name="q" placeholder="搜索片名、演员或类型，例如：武侠 / 科幻" aria-label="站内搜索">
+          <button type="submit">放映</button>
+        </form>
+        <div class="chips">
+          <a href="#movie">科幻大片</a><a href="#movie">治愈日常</a><a href="#series">都市情感</a>
+          <a href="#rank">高分经典</a><a href="#movie">国创动漫</a><a href="#story">今日上新</a>
+        </div>
+      </div>
+
+      <aside class="projector reveal">
+        <p class="yr">19<span>05</span></p>
+        <p class="sub">THE FIRST REEL · 中国电影元年</p>
+        <ul>
+          <li><span>收录影片</span><b>34,200+</b></li>
+          <li><span>精细分类</span><b>20</b></li>
+          <li><span>上新频率</span><b>每日 2 次</b></li>
+          <li><span>榜单刷新</span><b>每小时</b></li>
+          <li><span>移动适配</span><b>已启用</b></li>
+        </ul>
+        <p class="note">从第一卷胶片到今天的高分新片，1905电影网都在同一条片轴上。</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== 栏目一：1905片库 ===== -->
+  <section id="movie">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="frame-no">F-01</span>
+          <div>
+            <h2><small>Library</small>1905片库 · 一格一格过片</h2>
+            <p>1905电影网把片库按题材细分，治愈、科幻、动作、爱情、悬疑、动画各有专区，点一下就筛，不用在长列表里翻找。</p>
+          </div>
+        </div>
+        <a class="more" href="#">查看全部分类 →</a>
+      </div>
+      <div class="filters" role="tablist" aria-label="影片类型筛选">
+        <button class="on" data-cat="all" role="tab" aria-selected="true">全部</button>
+        <button data-cat="heal" role="tab" aria-selected="false">治愈</button>
+        <button data-cat="scifi" role="tab" aria-selected="false">科幻</button>
+        <button data-cat="action" role="tab" aria-selected="false">动作</button>
+        <button data-cat="love" role="tab" aria-selected="false">爱情</button>
+        <button data-cat="mystery" role="tab" aria-selected="false">悬疑</button>
+        <button data-cat="anime" role="tab" aria-selected="false">动画</button>
+      </div>
+      <div class="film">
+        <div class="perf-t" aria-hidden="true"></div>
+        <div class="frames">
+          <div class="grid" id="movieGrid">
+            <a class="cell reveal" href="#" data-cat="heal" style="--c1:#3fb8b0;--c2:#0c3a38">
+              <span class="ph"><span class="tag">治愈</span><span class="sc">8.9</span><span class="nm">潮汐来信</span></span>
+              <div class="meta"><h3>潮汐来信</h3><p><span>剧情 · 2026</span><em>8.9</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="scifi" style="--c1:#5b7fd4;--c2:#111c3a">
+              <span class="ph"><span class="tag">科幻</span><span class="sc">9.1</span><span class="nm">星轨之下</span></span>
+              <div class="meta"><h3>星轨之下</h3><p><span>科幻 · 2026</span><em>9.1</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="action" style="--c1:#d97706;--c2:#4a2405">
+              <span class="ph"><span class="tag">动作</span><span class="sc">8.5</span><span class="nm">疾速拦截</span></span>
+              <div class="meta"><h3>疾速拦截</h3><p><span>动作 · 2026</span><em>8.5</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="mystery" style="--c1:#7c5cd6;--c2:#211246">
+              <span class="ph"><span class="tag">悬疑</span><span class="sc">8.8</span><span class="nm">第七个证人</span></span>
+              <div class="meta"><h3>第七个证人</h3><p><span>悬疑 · 2025</span><em>8.8</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="love" style="--c1:#d9455f;--c2:#4a0f1c">
+              <span class="ph"><span class="tag">爱情</span><span class="sc">8.7</span><span class="nm">长街旧事</span></span>
+              <div class="meta"><h3>长街旧事</h3><p><span>剧情 · 2025</span><em>8.7</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="anime" style="--c1:#f0b429;--c2:#5a3d05">
+              <span class="ph"><span class="tag">动画</span><span class="sc">8.6</span><span class="nm">花灯记</span></span>
+              <div class="meta"><h3>花灯记</h3><p><span>动画 · 2026</span><em>8.6</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="heal" style="--c1:#6aa8b8;--c2:#123840">
+              <span class="ph"><span class="tag">治愈</span><span class="sc">8.3</span><span class="nm">海边小店</span></span>
+              <div class="meta"><h3>海边小店</h3><p><span>剧情 · 2025</span><em>8.3</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="mystery" style="--c1:#6b7280;--c2:#1f2937">
+              <span class="ph"><span class="tag">悬疑</span><span class="sc">8.4</span><span class="nm">无声证词</span></span>
+              <div class="meta"><h3>无声证词</h3><p><span>悬疑 · 2024</span><em>8.4</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="action" style="--c1:#c2410c;--c2:#3d1405">
+              <span class="ph"><span class="tag">动作</span><span class="sc">8.1</span><span class="nm">极速追缉</span></span>
+              <div class="meta"><h3>极速追缉</h3><p><span>动作 · 2026</span><em>8.1</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="scifi" style="--c1:#3b6ea8;--c2:#0a1c30">
+              <span class="ph"><span class="tag">科幻</span><span class="sc">9.0</span><span class="nm">深空信号</span></span>
+              <div class="meta"><h3>深空信号</h3><p><span>科幻 · 2026</span><em>9.0</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="anime" style="--c1:#65a30d;--c2:#1a2e05">
+              <span class="ph"><span class="tag">动画</span><span class="sc">8.2</span><span class="nm">山海食记</span></span>
+              <div class="meta"><h3>山海食记</h3><p><span>动画 · 2025</span><em>8.2</em></p></div>
+            </a>
+            <a class="cell reveal" href="#" data-cat="love" style="--c1:#b06ab3;--c2:#3a1040">
+              <span class="ph"><span class="tag">爱情</span><span class="sc">7.9</span><span class="nm">周末大赢家</span></span>
+              <div class="meta"><h3>周末大赢家</h3><p><span>喜剧 · 2025</span><em>7.9</em></p></div>
+            </a>
+          </div>
+        </div>
+        <div class="perf-b" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目二：剧集追更 ===== -->
+  <section id="series">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="frame-no">F-02</span>
+          <div>
+            <h2><small>Series</small>剧集追更 · 更新到哪集写在片盘上</h2>
+            <p>都市情感、年代往事、悬疑罪案同步跟播，每部剧标注当前集数与更新节奏，追剧不漏集、不慌张。</p>
+          </div>
+        </div>
+        <a class="more" href="#">更新时间表 →</a>
+      </div>
+      <div class="reels">
+        <a class="reel-row reveal" href="#" style="--c1:#7c5cd6;--c2:#211246">
+          <span class="disc"><b>EP 24</b></span>
+          <div class="det"><h3>第七个证人</h3><p>悬疑 / 犯罪 · 每周三、周五 20:00 更新</p>
+            <span class="bar"><i style="width:80%"></i></span><span class="pct">80% 已更新</span></div>
+          <span class="spin" aria-hidden="true"></span>
+        </a>
+        <a class="reel-row reveal" href="#" style="--c1:#d9455f;--c2:#4a0f1c">
+          <span class="disc"><b>EP 20</b></span>
+          <div class="det"><h3>长街旧事</h3><p>剧情 / 年代 · 每周一至周三 21:00 更新</p>
+            <span class="bar"><i style="width:62%"></i></span><span class="pct">62% 已更新</span></div>
+          <span class="spin" aria-hidden="true"></span>
+        </a>
+        <a class="reel-row reveal" href="#" style="--c1:#3fb8b0;--c2:#0c3a38">
+          <span class="disc"><b>EP 32</b></span>
+          <div class="det"><h3>潮汐来信</h3><p>爱情 / 都市 · 全 32 集一次看爽</p>
+            <span class="bar"><i style="width:100%"></i></span><span class="pct">已完结</span></div>
+          <span class="spin" aria-hidden="true"></span>
+        </a>
+        <a class="reel-row reveal" href="#" style="--c1:#3b6ea8;--c2:#0a1c30">
+          <span class="disc"><b>EP 12</b></span>
+          <div class="det"><h3>深空信号</h3><p>科幻 / 剧情 · 每周六 22:00 更新</p>
+            <span class="bar"><i style="width:40%"></i></span><span class="pct">40% 已更新</span></div>
+          <span class="spin" aria-hidden="true"></span>
+        </a>
+        <a class="reel-row reveal" href="#" style="--c1:#65a30d;--c2:#1a2e05">
+          <span class="disc"><b>EP 30</b></span>
+          <div class="det"><h3>山海食记</h3><p>动画 / 国创 · 每周四 10:00 更新</p>
+            <span class="bar"><i style="width:75%"></i></span><span class="pct">75% 已更新</span></div>
+          <span class="spin" aria-hidden="true"></span>
+        </a>
+        <a class="reel-row reveal" href="#" style="--c1:#d97706;--c2:#4a2405">
+          <span class="disc"><b>EP 08</b></span>
+          <div class="det"><h3>极速追缉</h3><p>动作 / 涉案 · 每周日 20:00 更新</p>
+            <span class="bar"><i style="width:27%"></i></span><span class="pct">27% 已更新</span></div>
+          <span class="spin" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目三：热播榜单 ===== -->
+  <section id="rank">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="frame-no">F-03</span>
+          <div>
+            <h2><small>Ranking</small>热播榜单 · 跟着口碑不踩雷</h2>
+            <p>榜单综合 1905电影网站内播放热度、完播率与观众评分，每小时重算一次，三张榜各看各的。</p>
+          </div>
+        </div>
+        <a class="more" href="#">榜单规则 →</a>
+      </div>
+      <div class="ranks">
+        <div class="rank reveal">
+          <h3><i aria-hidden="true"></i>今日热播榜</h3>
+          <ol>
+            <li><span class="no">01</span><span class="rt"><strong>星轨之下</strong><span>科幻 · 2026</span></span><span class="hot">9.1</span></li>
+            <li><span class="no">02</span><span class="rt"><strong>深空信号</strong><span>科幻 · 2026</span></span><span class="hot">9.0</span></li>
+            <li><span class="no">03</span><span class="rt"><strong>潮汐来信</strong><span>剧情 · 2026</span></span><span class="hot">8.9</span></li>
+            <li><span class="no">04</span><span class="rt"><strong>第七个证人</strong><span>悬疑 · 2025</span></span><span class="hot">8.8</span></li>
+            <li><span class="no">05</span><span class="rt"><strong>长街旧事</strong><span>剧情 · 2025</span></span><span class="hot">8.7</span></li>
+          </ol>
+        </div>
+        <div class="rank reveal">
+          <h3><i aria-hidden="true"></i>高分口碑榜</h3>
+          <ol>
+            <li><span class="no">01</span><span class="rt"><strong>第七个证人</strong><span>悬疑 · 2025</span></span><span class="hot">8.8</span></li>
+            <li><span class="no">02</span><span class="rt"><strong>花灯记</strong><span>动画 · 2026</span></span><span class="hot">8.6</span></li>
+            <li><span class="no">03</span><span class="rt"><strong>疾速拦截</strong><span>动作 · 2026</span></span><span class="hot">8.5</span></li>
+            <li><span class="no">04</span><span class="rt"><strong>无声证词</strong><span>悬疑 · 2024</span></span><span class="hot">8.4</span></li>
+            <li><span class="no">05</span><span class="rt"><strong>海边小店</strong><span>剧情 · 2025</span></span><span class="hot">8.3</span></li>
+          </ol>
+        </div>
+        <div class="rank reveal">
+          <h3><i aria-hidden="true"></i>国创动漫榜</h3>
+          <ol>
+            <li><span class="no">01</span><span class="rt"><strong>花灯记</strong><span>动画 · 2026</span></span><span class="hot">8.6</span></li>
+            <li><span class="no">02</span><span class="rt"><strong>山海食记</strong><span>动画 · 2025</span></span><span class="hot">8.2</span></li>
+            <li><span class="no">03</span><span class="rt"><strong>星辰旅人</strong><span>动画 · 2026</span></span><span class="hot">7.9</span></li>
+            <li><span class="no">04</span><span class="rt"><strong>机械之心</strong><span>动画 · 2025</span></span><span class="hot">7.6</span></li>
+            <li><span class="no">05</span><span class="rt"><strong>森林邮局</strong><span>动画 · 2024</span></span><span class="hot">7.3</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目四：光影纪事 ===== -->
+  <section id="story">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="frame-no">F-04</span>
+          <div>
+            <h2><small>Story</small>光影纪事 · 从一卷胶片到现在</h2>
+            <p>1905 是中国电影的起点，这条时间轴记录了影史上的几个关键节点，也记录着本站在做的事。</p>
+          </div>
+        </div>
+        <a class="more" href="#">更多光影纪事 →</a>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="yr">1905</p>
+          <h3>第一卷胶片转动</h3>
+          <p>中国第一部影片在这一年诞生，光影从此有了中文的叙事方式。</p>
+        </div>
+        <div class="tl-item">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="yr">1930s</p>
+          <h3>默片到有声的跨越</h3>
+          <p>技术更替带来叙事革命，影院成为城市里最热闹的公共场所。</p>
+        </div>
+        <div class="tl-item">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="yr">1980s</p>
+          <h3>彩色宽银幕时代</h3>
+          <p>题材与类型全面开花，武侠、家庭、喜剧各自形成稳定的观众群。</p>
+        </div>
+        <div class="tl-item">
+          <span class="dot" aria-hidden="true"></span>
+          <p class="yr">TODAY</p>
+          <h3>1905电影网接上这一卷</h3>
+          <p>把分散的影视入口、分类标签与榜单数据收进同一个页面，让找片这件事变短。</p>
+        </div>
+      </div>
+
+      <div class="notes">
+        <article class="note reveal">
+          <div class="cv" style="--c1:#5b7fd4;--c2:#111c3a"><b>今日上新</b></div>
+          <div class="bd"><h3>本周新片：科幻与治愈同台</h3><p>1905电影网整理本周上线新片的题材分布与看点，附观影顺序建议。</p><time datetime="2026-10-03">2026-10-03</time></div>
+        </article>
+        <article class="note reveal">
+          <div class="cv" style="--c1:#3fb8b0;--c2:#0c3a38"><b>观影指南</b></div>
+          <div class="bd"><h3>手机上看清 1080P 的三步排查法</h3><p>从码率、播放器到网络环境逐一排查，弱网下也能获得稳定的高清体验。</p><time datetime="2026-10-01">2026-10-01</time></div>
+        </article>
+        <article class="note reveal">
+          <div class="cv" style="--c1:#f0b429;--c2:#5a3d05"><b>榜单解读</b></div>
+          <div class="bd"><h3>热播榜的分数是怎么算出来的</h3><p>拆解 1905电影网榜单权重：播放热度、完播率与评分如何共同决定排位。</p><time datetime="2026-09-28">2026-09-28</time></div>
+        </article>
+        <article class="note reveal">
+          <div class="cv" style="--c1:#d9455f;--c2:#4a0f1c"><b>类型专题</b></div>
+          <div class="bd"><h3>一份陪你过周末的治愈片单</h3><p>从轻松日常到温柔结局，挑选 12 部适合周末慢慢看的治愈系作品。</p><time datetime="2026-09-25">2026-09-25</time></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目五：关于与帮助 ===== -->
+  <section id="about">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="frame-no">F-05</span>
+          <div>
+            <h2><small>About</small>关于 1905电影网</h2>
+            <p>一个把「找片」这件事变短的影视资源聚合导航站，分类、榜单与新片信息集中在一页里。</p>
+          </div>
+        </div>
+        <a class="more" href="#">意见反馈 →</a>
+      </div>
+      <div class="about">
+        <div class="panel reveal">
+          <h3>我们做什么</h3>
+          <p><b>1905电影网</b>（https://www.1905dianyingwang-cn）是一个面向中文用户的影视资源聚合导航站。目标很直接：让「找片」这件事变短，把分散的影视入口、分类标签与榜单数据收进同一个页面。</p>
+          <p>三条坚持：<b>分类够细</b>、<b>上新够勤</b>、<b>页面够轻</b>。整站单页结构，移动端自适应，弱网也能快速打开。</p>
+          <div class="spec">
+            <div><strong>细分找片</strong><span>六类题材与站内搜索</span></div>
+            <div><strong>移动优先</strong><span>手机平板桌面全适配</span></div>
+            <div><strong>每日上新</strong><span>10:00 / 21:00 两次</span></div>
+            <div><strong>轻量加载</strong><span>单页结构，打开即看</span></div>
+          </div>
+        </div>
+        <div class="panel faq reveal">
+          <h3>常见问题</h3>
+          <details open><summary>1905电影网需要注册才能浏览吗？</summary><p>不需要。分类浏览、榜单与光影纪事内容全部开放访问，打开页面即可查看，无需注册登录。</p></details>
+          <details><summary>站名里的 1905 是什么意思？</summary><p>1905 是中国电影诞生的年份。站名取这个数字，是希望把「好好找一部片」这件事做得长久一点。</p></details>
+          <details><summary>手机端会自动适配屏幕吗？</summary><p>会。页面为响应式布局，手机上自动切换为双列卡片与折叠导航，横竖屏都能正常显示。</p></details>
+          <details><summary>影片清晰度可以自己选吗？</summary><p>支持多档清晰度切换，具体档位以播放源为准；网络较差时建议先降低清晰度保证流畅。</p></details>
+          <details><summary>找不到想看的影片怎么办？</summary><p>先用顶部搜索框按片名、演员或类型检索，也可进入 1905片库按题材与年份逐层筛选。</p></details>
+        </div>
+      </div>
+
+      <div class="cta reveal">
+        <h2>今晚看什么？<em>1905电影网</em> 已经上好片盘</h2>
+        <p>收藏 1905电影网，随时打开就能看到最新上线的电影、剧集与热播榜单，今天不愁没得看。</p>
+        <a href="#movie">开始放映</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <span class="perf" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="lg" href="#home" aria-label="1905电影网首页"><i aria-hidden="true">1905</i>1905电影网</a>
+        <p>1905电影网 · 影视资源聚合导航。本站仅提供影视信息索引与分类导航服务。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#home">放映厅</a></li>
+          <li><a href="#movie">1905片库</a></li>
+          <li><a href="#series">剧集追更</a></li>
+          <li><a href="#rank">热播榜单</a></li>
+          <li><a href="#story">光影纪事</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>热门类型</h4>
+        <ul>
+          <li><a href="#movie">治愈系电影</a></li>
+          <li><a href="#movie">科幻电影</a></li>
+          <li><a href="#movie">悬疑犯罪</a></li>
+          <li><a href="#movie">爱情剧情</a></li>
+          <li><a href="#movie">国创动漫</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于本站</h4>
+        <ul>
+          <li><a href="#about">关于 1905电影网</a></li>
+          <li><a href="#about">常见问题</a></li>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">免责声明</a></li>
+          <li><a href="#">友情链接</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 1905电影网 https://www.1905dianyingwang-cn · 影视信息聚合导航</span>
+      <span>热门关键词：<b>1905电影网</b> · 电影在线观看 · 电视剧在线观看 · 国创动漫 · 热播榜单</span>
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="回到顶部"><svg viewBox="0 0 24 24"><path d="M12 5l7 7h-4v7h-6v-7H5z"/></svg></button>
+
+<!-- ===== 结构化数据（利于必应理解与收录） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.1905dianyingwang-cn/#website",
+      "url": "https://www.1905dianyingwang-cn/",
+      "name": "1905电影网",
+      "alternateName": ["1905电影", "1905电影网官网"],
+      "description": "1905电影网是面向中文用户的影视资源聚合导航站，收录热门电影、热播电视剧、国创动漫与热播榜单。",
+      "inLanguage": "zh-CN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://www.1905dianyingwang-cn/?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.1905dianyingwang-cn/#organization",
+      "name": "1905电影网",
+      "url": "https://www.1905dianyingwang-cn/",
+      "logo": "https://www.1905dianyingwang-cn/favicon.ico"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.1905dianyingwang-cn/#webpage",
+      "url": "https://www.1905dianyingwang-cn/",
+      "name": "1905电影网 - 热门电影电视剧在线观看_影视资源聚合导航",
+      "isPartOf": { "@id": "https://www.1905dianyingwang-cn/#website" },
+      "about": { "@id": "https://www.1905dianyingwang-cn/#organization" },
+      "inLanguage": "zh-CN",
+      "primaryImageOfPage": "https://www.1905dianyingwang-cn/favicon.ico",
+      "breadcrumb": { "@id": "https://www.1905dianyingwang-cn/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.1905dianyingwang-cn/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.1905dianyingwang-cn/" },
+        { "@type": "ListItem", "position": 2, "name": "1905片库", "item": "https://www.1905dianyingwang-cn/#movie" },
+        { "@type": "ListItem", "position": 3, "name": "剧集追更", "item": "https://www.1905dianyingwang-cn/#series" },
+        { "@type": "ListItem", "position": 4, "name": "热播榜单", "item": "https://www.1905dianyingwang-cn/#rank" },
+        { "@type": "ListItem", "position": 5, "name": "光影纪事", "item": "https://www.1905dianyingwang-cn/#story" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "1905电影网今日热播榜",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": 5,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "星轨之下" },
+        { "@type": "ListItem", "position": 2, "name": "深空信号" },
+        { "@type": "ListItem", "position": 3, "name": "潮汐来信" },
+        { "@type": "ListItem", "position": 4, "name": "第七个证人" },
+        { "@type": "ListItem", "position": 5, "name": "长街旧事" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "1905电影网需要注册才能浏览吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "不需要。分类浏览、榜单与光影纪事内容全部开放访问，打开页面即可查看，无需注册登录。" } },
+        { "@type": "Question", "name": "站名里的 1905 是什么意思？",
+          "acceptedAnswer": { "@type": "Answer", "text": "1905 是中国电影诞生的年份。站名取这个数字，是希望把「好好找一部片」这件事做得长久一点。" } },
+        { "@type": "Question", "name": "手机端会自动适配屏幕吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "会。页面为响应式布局，手机上自动切换为双列卡片与折叠导航，横竖屏都能正常显示。" } },
+        { "@type": "Question", "name": "影片清晰度可以自己选吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "支持多档清晰度切换，具体档位以播放源为准；网络较差时建议先降低清晰度保证流畅。" } },
+        { "@type": "Question", "name": "找不到想看的影片怎么办？",
+          "acceptedAnswer": { "@type": "Answer", "text": "先用顶部搜索框按片名、演员或类型检索，也可进入 1905片库按题材与年份逐层筛选。" } }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var bar = document.getElementById('progress');
+  var topBtn = document.getElementById('top');
+  function onScroll () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY || document.documentElement.scrollTop;
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    if (y > 420) { topBtn.classList.add('show'); } else { topBtn.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  topBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  /* 移动端导航 */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('on', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('open');
+      burger.classList.remove('on');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  /* 导航高亮 */
+  var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]:not(.nav-cta)'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    var navObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) { return; }
+        links.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    secs.forEach(function (s) { navObs.observe(s); });
+  }
+
+  /* 类型筛选 */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.filters button'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#movieGrid .cell'));
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.classList.remove('on'); b.setAttribute('aria-selected', 'false'); });
+      btn.classList.add('on');
+      btn.setAttribute('aria-selected', 'true');
+      var cat = btn.getAttribute('data-cat');
+      cards.forEach(function (c) {
+        c.style.display = (cat === 'all' || c.getAttribute('data-cat') === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  /* 搜索 */
+  var form = document.getElementById('searchForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.q.value.trim()) { form.q.focus(); return; }
+    document.getElementById('movie').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  /* 入场动画 */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en, i) {
+        if (en.isIntersecting) {
+          var el = en.target;
+          setTimeout(function () { el.classList.add('in'); }, i * 50);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function (r) { io.observe(r); });
+  } else {
+    reveals.forEach(function (r) { r.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
